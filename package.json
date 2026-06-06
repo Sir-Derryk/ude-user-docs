@@ -1,0 +1,13 @@
+{
+  "name": "ude-user-docs",
+  "version": "1.0.0",
+  "description": "User and Admin Guides for Universal Document Engine (UDE)",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0"
+  }
+}

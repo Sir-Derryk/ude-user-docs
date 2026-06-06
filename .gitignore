@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules/
+
+# VitePress cache and build outputs
+.vitepress/cache/
+.vitepress/dist/
+
+# Hugo build outputs (for combined API reference)
+user-docs/dist/api/
+/api/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+*.log
