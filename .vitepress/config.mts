@@ -18,8 +18,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'User Guides', link: '/docs/getting-started' },
-      { text: 'API Reference', link: '/api/' },
-      { text: 'Design Specs', link: 'https://Sir-Derryk.github.io/ude-design-docs/' }
+      { text: 'API Reference', link: 'https://sir-derryk.github.io/ude-user-docs/api/' }
     ],
 
     sidebar: {
