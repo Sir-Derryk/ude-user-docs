@@ -37,6 +37,11 @@ jobs:
           path: engine
           token: ${{ secrets.ENGINE_PAT }}
 
+      - name: Install Doxygen (Ubuntu)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
