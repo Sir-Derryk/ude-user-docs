@@ -19,6 +19,7 @@ export default defineConfig({
   
   themeConfig: {
     logo: '/logo.svg',
+    outline: 'deep',
     
     nav: [
       { text: 'Home', link: '/' },
