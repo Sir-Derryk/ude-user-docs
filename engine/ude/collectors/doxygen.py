@@ -29,6 +29,7 @@ class DoxygenXmlCollector(BaseCollector):
 
         Satisfies REQ-FUN-01
         """
+        config_path = config_path.resolve()
         # Verify doxygen binary in PATH
         doxygen_bin = shutil.which("doxygen")
         if not doxygen_bin:
@@ -77,6 +78,7 @@ class DoxygenXmlCollector(BaseCollector):
 
         Satisfies REQ-FUN-01
         """
+        config_path = config_path.resolve()
         self.validate_environment(config_path)
 
         # Read configuration (validated)
