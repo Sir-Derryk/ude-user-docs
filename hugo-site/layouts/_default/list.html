@@ -46,7 +46,7 @@
             gap: 8px;
         }
         .logo-accent {
-            background: linear-gradient(135deg, #ff3100 0%, #ff6b4a 100%);
+            background: linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%);
             color: #ffffff;
             padding: 2px 10px;
             border-radius: 6px;
@@ -91,19 +91,19 @@
         }
         .nav-tab.active {
             background-color: #ffffff;
-            color: #ff3100;
+            color: #06B6D4;
             font-weight: 600;
-            border-top: 3px solid #ff3100;
+            border-top: 3px solid #06B6D4;
             padding-top: 8px; /* Offset the 3px border */
         }
         .nav-tab.catalog-tab {
-            background: linear-gradient(135deg, #fff 0%, #fff0eb 100%);
-            color: #ff3100;
-            border-color: #ffd0c4;
+            background: linear-gradient(135deg, #fff 0%, #ecfeff 100%);
+            color: #06B6D4;
+            border-color: #cffafe;
             font-weight: 600;
         }
         .nav-tab.catalog-tab:hover {
-            background: linear-gradient(135deg, #fff0eb 0%, #ffd0c4 100%);
+            background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
         }
 
         /* Breadcrumbs bar */
@@ -125,7 +125,7 @@
             transition: color 0.15s;
         }
         .breadcrumbs-container a:hover {
-            color: #ff3100;
+            color: #06B6D4;
         }
         .separator {
             color: #cbd5e1;
@@ -166,7 +166,7 @@
             background-color: #f8fafc;
         }
         .sidebar-search input:focus {
-            border-color: #ff3100;
+            border-color: #06B6D4;
             background-color: #ffffff;
             box-shadow: 0 0 0 3px rgba(255, 49, 0, 0.1);
         }
@@ -198,7 +198,7 @@
         }
         .namespace-title:hover {
             background-color: #e2e8f0;
-            color: #ff3100;
+            color: #06B6D4;
         }
         .namespace-list {
             list-style: none;
@@ -227,17 +227,17 @@
             text-overflow: ellipsis;
         }
         .api-item:hover {
-            background-color: #fff0eb;
+            background-color: #ecfeff;
         }
         .api-item:hover a {
-            color: #ff3100;
+            color: #06B6D4;
         }
         .api-item.active {
-            background-color: #fff0eb;
-            border-left: 3px solid #ff3100;
+            background-color: #ecfeff;
+            border-left: 3px solid #06B6D4;
         }
         .api-item.active a {
-            color: #ff3100;
+            color: #06B6D4;
             font-weight: 600;
             padding-left: 9px; /* Adjust for border width */
         }
@@ -277,7 +277,7 @@
             display: inline-block;
             width: 4px;
             height: 24px;
-            background-color: #ff3100;
+            background-color: #06B6D4;
             border-radius: 2px;
         }
         .prose p {
@@ -286,7 +286,7 @@
             margin-bottom: 20px;
         }
         .prose a {
-            color: #ff3100;
+            color: #06B6D4;
             text-decoration: none;
             border-bottom: 1px dashed rgba(255, 49, 0, 0.4);
             transition: border-color 0.2s;
@@ -340,7 +340,7 @@
             width: 28%;
         }
         .directory-name a {
-            color: #ff3100 !important;
+            color: #06B6D4 !important;
             text-decoration: none;
             border-bottom: none !important;
         }
@@ -356,7 +356,7 @@
         .doxygen-footer {
             background-color: #0f172a;
             color: #94a3b8;
-            border-top: 3px solid #ff3100;
+            border-top: 3px solid #06B6D4;
             padding: 24px 40px;
             font-size: 0.85rem;
         }
@@ -378,7 +378,7 @@
             transition: color 0.15s;
         }
         .doxygen-footer a:hover {
-            color: #ff3100;
+            color: #06B6D4;
         }
         .footer-center {
             background-color: rgba(255, 49, 0, 0.1);
@@ -390,13 +390,13 @@
         .footer-center:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(255, 49, 0, 0.2);
-            border-color: #ff3100;
+            border-color: #06B6D4;
         }
         .footer-center a.catalog-link {
             color: #ffffff;
         }
         .footer-center a.catalog-link strong {
-            color: #ffd0c4;
+            color: #cffafe;
         }
         .arrow {
             display: inline-block;
@@ -411,7 +411,7 @@
             transform: rotate(-90deg);
         }
         .heart {
-            color: #ff3100;
+            color: #06B6D4;
             animation: pulse 1.5s infinite;
             display: inline-block;
         }
@@ -425,7 +425,7 @@
         /* Mobile responsive styling */
         .mobile-menu-toggle {
             display: none;
-            background-color: #ff3100;
+            background-color: #06B6D4;
             color: #ffffff;
             border: none;
             width: 44px;
@@ -473,6 +473,27 @@
                 text-align: center;
             }
         }
+    
+        /* Quantum Lift custom terminal and code variable highlighting (REQ-API-QL) */
+        code, pre, .prose pre code {
+            font-family: 'JetBrains Mono', monospace !important;
+        }
+        /* Highlight variables in angle brackets <variable> as neon lime */
+        .token.variable, .token.attr-value, .token.string {
+            color: #bef264 !important; /* Neon lime */
+        }
+        /* Flags/options highlighting (Quantum Purple) */
+        .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string, .token.variable {
+            color: #8B5CF6 !important;
+        }
+        /* Active links / hover highlights */
+        a {
+            color: #06B6D4;
+        }
+        a:hover {
+            color: #8B5CF6;
+        }
+    
     </style>
 </head>
 <body>
