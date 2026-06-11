@@ -1,5 +1,5 @@
 baseURL = '/ude-user-docs/api/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = 'UDE API Reference'
 
 [markup]
@@ -8,4 +8,4 @@ title = 'UDE API Reference'
       unsafe = true # Allow HTML in Markdown if needed
 
 [permalinks]
-  api = "/:filename/"
+  api = "/:contentbasename/"
