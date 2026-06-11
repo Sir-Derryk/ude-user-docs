@@ -1,0 +1,17 @@
+name: Trigger Parent Integration Tests
+
+on:
+  push:
+    branches: [ main, master ]  # При коммите в основную ветку сабмодуля
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Repository Dispatch Event
+        run: |
+          curl -H "Accept: application/vnd.github.everest-preview+json" \
+               -H "Authorization: token ${{ secrets.PIPELINE_GITHUB_TOKEN }}" \
+               --request POST \
+               --data '{"event_type": "trigger-integration-tests"}' \
+               https://api.github.com/repos/Sir-Derryk/Pipeline/dispatches
