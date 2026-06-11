@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>{{ entity.name }} - API Reference</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="main.css">
+  <!-- Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <!-- Navigation Scripts (Offline, CORS-Free) -->
+  <script src="nav_data.js"></script>
+  <script src="sidebar.js" defer></script>
+  <script src="search.js" defer></script>
+</head>
+<body>
+  <header class="OdaDocMainHeader">
+    <section class="OdaDocProductInfo">
+      <img class="OdaDocLogoImg" src="logo.svg" alt="Open Design Alliance" onerror="this.style.display='none'">
+      <span class="OdaDocProductName">{{ product_name|default("Universal Documentation Engine") }} Reference</span>
+    </section>
+  </header>
+  <main>
+    <aside class="OdaDocTOCPanel">
+      <header class="OdaDocTOCHeader">Table of Contents</header>
+      <div class="OdaDocSearchBox">
+        <input type="text" id="sidebarSearch" placeholder="Filter API...">
+      </div>
+      <nav class="OdaDocTOC">
+        <div class="PageContentSidebar" id="toctree" data-content-url="nav_data.json">Loading...</div>
+      </nav>
+    </aside>
+    <div class="OdaDocSplitter" role="separator" aria-label="Resize panels" tabindex="0"></div>
+    <section class="OdaDocContainer">
+      <article class="OdaDocTopic">
+        <div class="OdaDocTopicContent">
+          <header class="OdaDocTopicHeader">
+            <h1 id="{{ entity.name|lower }}">{{ entity.name }}</h1>
+            <span class="OdaDocEntityType">[{{ entity_type|default("class") }}]</span>
+          </header>
+
+          <div class="OdaDocBrief">
+            {{ entity.docstring|default("No description provided.") }}
+          </div>
+
+          <div class="OdaDocContainerInfoPanel">
+            <table class="OdaDocContainerTable">
+              <tbody>
+                <tr>
+                  <td class="OdaDocContainerLabel">Scope:</td>
+                  <td class="OdaDocContainerValue"><code>{{ namespace_name|default("Global") }}</code></td>
+                </tr>
+                {% if entity.fully_qualified_name %}
+                <tr>
+                  <td class="OdaDocContainerLabel">Fully Qualified Name:</td>
+                  <td class="OdaDocContainerValue"><code>{{ entity.fully_qualified_name }}</code></td>
+                </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="OdaDocCodeProto">
+            <div class="OdaDocCodeProtoInner">
+              <pre><code class="{{ language }}">class {{ entity.name }} {
+  {# Render fields #}
+  {% for field in entity.fields %}
+  {{ field }};
+  {% endfor %}
+};</code></pre>
+            </div>
+          </div>
+
+          {% if entity.methods %}
+          <div class="SectionHeading expandable">Methods</div>
+          <div class="NavigationTable">
+            <div class="TableDiv">
+              <table cellspacing="0" class="Table0">
+                <tbody>
+                  {% for method in entity.methods %}
+                  <tr id="{{ method.name|lower }}">
+                    <td class="NavigationTableLink_block" valign="top" width="25%">
+                      <div class="NavigationTableLink">
+                        <img src="tmember_id_activation_site_00.png" onerror="this.src='btn_toc_leaf.gif'" />
+                        <strong>{{ method.name }}</strong>
+                      </div>
+                    </td>
+                    <td class="NavigationTableDescription_block" valign="top" width="75%">
+                      <div class="NavigationTableDescription">
+                        <code>{{ method.signature }}</code>
+                        {% if method.docstring %}
+                        <p>{{ method.docstring }}</p>
+                        {% endif %}
+                        {% if method.parameters %}
+                        <table class="OdaDocParamsTable" style="margin-top: 8px; font-size: 0.9em; border-collapse: collapse; width: 100%;">
+                          <thead>
+                            <tr style="border-bottom: 1px solid #ddd; background: rgba(0,0,0,0.02);">
+                              <th align="left" style="padding: 6px;">Parameter</th>
+                              <th align="left" style="padding: 6px;">Type</th>
+                              <th align="left" style="padding: 6px;">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for param in method.parameters %}
+                            <tr>
+                              <td style="padding: 6px; border-bottom: 1px solid #eee;"><code>{{ param.name }}</code></td>
+                              <td style="padding: 6px; border-bottom: 1px solid #eee;"><code>{{ param.type }}</code></td>
+                              <td style="padding: 6px; border-bottom: 1px solid #eee;">{{ param.description }}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        {% endif %}
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

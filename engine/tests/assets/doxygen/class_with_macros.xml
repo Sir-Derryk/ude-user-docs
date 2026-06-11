@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8">
+  <compounddef id="class_my_exported_class" kind="class" language="C++" prot="public">
+    <compoundname>NWDBEXPORT MyExportedClass</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_exported_class_1a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="normal">
+        <type>void MAPEXPORT</type>
+        <definition>void MAPEXPORT MyExportedClass::render</definition>
+        <argsstring>()</argsstring>
+        <name>render</name>
+        <briefdescription>
+          <para>Renders something with MAPEXPORT macro.</para>
+        </briefdescription>
+      </memberdef>
+    </sectiondef>
+  </compounddef>
+</doxygen>
