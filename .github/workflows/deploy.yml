@@ -35,6 +35,7 @@ jobs:
         with:
           repository: Sir-Derryk/universal-document-engine
           path: engine
+          token: ${{ secrets.ENGINE_PAT }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
