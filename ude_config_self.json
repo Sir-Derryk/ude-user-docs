@@ -1,0 +1,22 @@
+{
+    "project_name": "UDE API Reference",
+    "src_dir": [
+        "engine/ude"
+    ],
+    "static_pages_dir": "./",
+    "output_dir": "hugo-site/content/api",
+    "incremental": true,
+    "collector": {
+        "type": "python",
+        "file_patterns": [
+            "**/*.py"
+        ],
+        "include_private": false
+    },
+    "parser": {
+        "type": "doxygen_xml"
+    },
+    "renderer": {
+        "type": "hugo_markdown"
+    }
+}
