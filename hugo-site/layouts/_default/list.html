@@ -2,71 +2,663 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ .Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | UDE API Index</title>
+    
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* CSS reset & variables */
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background-color: #fafafa;
-        }
-        h1 {
-            color: #10b981;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 10px;
-        }
-        ul {
-            list-style-type: none;
+            margin: 0;
             padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+            line-height: 1.5;
         }
-        li {
-            margin: 12px 0;
-            padding: 10px;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
+
+        /* Doxygen-themed Header styling */
+        .doxygen-header {
+            background: linear-gradient(to bottom, #ffffff 0%, #f1f5f9 100%);
+            border-bottom: 2px solid #cbd5e1;
+            padding-top: 10px;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 24px;
+        }
+        .project-logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-accent {
+            background: linear-gradient(135deg, #ff3100 0%, #ff6b4a 100%);
+            color: #ffffff;
+            padding: 2px 10px;
             border-radius: 6px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 1.1rem;
+            font-weight: 800;
         }
-        li:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        .project-version {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.825rem;
+            color: #64748b;
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 12px;
         }
-        a {
-            color: #10b981;
+
+        .header-nav {
+            padding: 0 24px;
+        }
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: -2px; /* Pull active tab over the header border */
+        }
+        .nav-tab {
+            display: block;
+            padding: 10px 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #475569;
             text-decoration: none;
-            font-weight: 500;
+            background-color: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            border-bottom: none;
+            border-radius: 6px 6px 0 0;
+            margin-right: 4px;
+            transition: all 0.2s ease-in-out;
         }
-        a:hover {
-            text-decoration: underline;
+        .nav-tab:hover {
+            background-color: #cbd5e1;
+            color: #0f172a;
         }
-        .back-link {
+        .nav-tab.active {
+            background-color: #ffffff;
+            color: #ff3100;
+            font-weight: 600;
+            border-top: 3px solid #ff3100;
+            padding-top: 8px; /* Offset the 3px border */
+        }
+        .nav-tab.catalog-tab {
+            background: linear-gradient(135deg, #fff 0%, #fff0eb 100%);
+            color: #ff3100;
+            border-color: #ffd0c4;
+            font-weight: 600;
+        }
+        .nav-tab.catalog-tab:hover {
+            background: linear-gradient(135deg, #fff0eb 0%, #ffd0c4 100%);
+        }
+
+        /* Breadcrumbs bar */
+        .doxygen-breadcrumbs {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 8px 24px;
+        }
+        .breadcrumbs-container {
+            font-size: 0.85rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .breadcrumbs-container a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        .breadcrumbs-container a:hover {
+            color: #ff3100;
+        }
+        .separator {
+            color: #cbd5e1;
+        }
+        .breadcrumb-active {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        /* Base Layout */
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr; /* List pages generally do not need right sidebar */
+            min-height: calc(100vh - 180px);
+        }
+
+        /* Left Sidebar (Global Tree) */
+        .left-sidebar {
+            background-color: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            overflow-y: auto;
+            max-height: calc(100vh - 180px);
+            position: sticky;
+            top: 0;
+        }
+        .sidebar-search input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            outline: none;
+            transition: all 0.2s;
+            background-color: #f8fafc;
+        }
+        .sidebar-search input:focus {
+            border-color: #ff3100;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(255, 49, 0, 0.1);
+        }
+        .sidebar-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .namespace-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .namespace-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #334155;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 8px;
+            background-color: #f1f5f9;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+        .namespace-title:hover {
+            background-color: #e2e8f0;
+            color: #ff3100;
+        }
+        .namespace-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding-left: 8px;
+            border-left: 1.5px solid #e2e8f0;
+            margin-left: 10px;
+            margin-top: 4px;
+        }
+        .api-item {
+            border-radius: 4px;
+            transition: all 0.15s;
+        }
+        .api-item a {
+            display: block;
+            padding: 6px 12px;
+            font-size: 0.875rem;
+            color: #475569;
+            text-decoration: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .api-item:hover {
+            background-color: #fff0eb;
+        }
+        .api-item:hover a {
+            color: #ff3100;
+        }
+        .api-item.active {
+            background-color: #fff0eb;
+            border-left: 3px solid #ff3100;
+        }
+        .api-item.active a {
+            color: #ff3100;
+            font-weight: 600;
+            padding-left: 9px; /* Adjust for border width */
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: 40px 48px;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        .prose {
+            width: 100%;
+            max-width: 900px;
+        }
+        .prose h1 {
+            font-size: 2.25rem;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+        .prose h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .prose h2::before {
+            content: "";
             display: inline-block;
-            margin-bottom: 20px;
-            color: #6b7280;
-            font-weight: 500;
+            width: 4px;
+            height: 24px;
+            background-color: #ff3100;
+            border-radius: 2px;
         }
-        .back-link:hover {
-            color: #10b981;
+        .prose p {
+            color: #334155;
+            line-height: 1.625;
+            margin-bottom: 20px;
+        }
+        .prose a {
+            color: #ff3100;
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(255, 49, 0, 0.4);
+            transition: border-color 0.2s;
+        }
+        .prose a:hover {
+            border-bottom-style: solid;
+        }
+
+        /* Directory list exclusive layout styling */
+        .directory-list-title {
+            margin-top: 40px !important;
+        }
+        .directory-list-container {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .directory-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.925rem;
+        }
+        .directory-table th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 14px 18px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        .directory-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #f1f5f9;
+            background-color: #ffffff;
+            vertical-align: top;
+        }
+        .directory-table tr:last-child td {
+            border-bottom: none;
+        }
+        .directory-table tr:hover td {
+            background-color: #f8fafc;
+        }
+        .directory-name {
+            font-weight: 600;
+            white-space: nowrap;
+            width: 28%;
+        }
+        .directory-name a {
+            color: #ff3100 !important;
+            text-decoration: none;
+            border-bottom: none !important;
+        }
+        .directory-name a:hover {
+            text-decoration: underline !important;
+        }
+        .directory-desc {
+            color: #475569;
+            line-height: 1.525;
+        }
+
+        /* Doxygen Premium Footer */
+        .doxygen-footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            border-top: 3px solid #ff3100;
+            padding: 24px 40px;
+            font-size: 0.85rem;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        .doxygen-footer strong {
+            color: #ffffff;
+        }
+        .doxygen-footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        .doxygen-footer a:hover {
+            color: #ff3100;
+        }
+        .footer-center {
+            background-color: rgba(255, 49, 0, 0.1);
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 49, 0, 0.25);
+            transition: all 0.3s ease;
+        }
+        .footer-center:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 49, 0, 0.2);
+            border-color: #ff3100;
+        }
+        .footer-center a.catalog-link {
+            color: #ffffff;
+        }
+        .footer-center a.catalog-link strong {
+            color: #ffd0c4;
+        }
+        .arrow {
+            display: inline-block;
+            transition: transform 0.2s;
+            font-size: 0.65rem;
+            margin-right: 5px;
+        }
+        .namespace-group.collapsed .namespace-list {
+            display: none;
+        }
+        .namespace-group.collapsed .arrow {
+            transform: rotate(-90deg);
+        }
+        .heart {
+            color: #ff3100;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        /* Mobile responsive styling */
+        .mobile-menu-toggle {
+            display: none;
+            background-color: #ff3100;
+            color: #ffffff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(255, 49, 0, 0.3);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .mobile-menu-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+            .left-sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100vh;
+                z-index: 999;
+                box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+                transition: left 0.3s ease-in-out;
+            }
+            .left-sidebar.active {
+                left: 0;
+            }
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            .content-area {
+                padding: 24px 20px;
+            }
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    {{ if not .IsHome }}
-        <a href="../" class="back-link">← Up to Parent</a>
-    {{ end }}
-    <main>
-        <h1>{{ .Title }}</h1>
-        {{ .Content }}
-        <ul>
-            {{ range .Pages }}
-                <li>
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </li>
-            {{ end }}
-        </ul>
-    </main>
+
+    <!-- Classic Doxygen Premium Header -->
+    <header class="doxygen-header">
+        <div class="header-top">
+            <div class="project-logo">
+                <span class="logo-accent">UDE</span> Universal Documentation Engine
+            </div>
+            <div class="project-version">v0.4 (Документирование)</div>
+        </div>
+        <div class="header-nav">
+            <div class="nav-tabs">
+                <a href="/" class="nav-tab">Main Page</a>
+                <a href="/guides/getting-started" class="nav-tab">Guides & Manuals</a>
+                <a href="/api/" class="nav-tab active">API Reference</a>
+                <a href="../ude_portal_blueprint.md" class="nav-tab catalog-tab">📄 Central Catalog</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs Bar -->
+    <div class="doxygen-breadcrumbs">
+        <div class="breadcrumbs-container">
+            <a href="/">UDE</a>
+            <span class="separator">»</span>
+            <span class="breadcrumb-active">API Reference</span>
+        </div>
+    </div>
+
+    <!-- Main Responsive Layout Wrapper -->
+    <div class="portal-layout">
+        
+        <!-- Left Sidebar (Global Class Index Tree) -->
+        <aside class="left-sidebar">
+            <div class="sidebar-search">
+                <input type="text" id="api-search" placeholder="Filter classes..." autocomplete="off">
+            </div>
+            <div class="sidebar-tree">
+                
+                <div class="namespace-group">
+                    <div class="namespace-title">Navigation</div>
+                    <ul class="namespace-list">
+                        <li class="api-item active">
+                            <a href="/api/">API Index Overview</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {{ range .Site.RegularPages.GroupByParam "parent" }}
+                    {{ if .Key }}
+                        <div class="namespace-group">
+                            <div class="namespace-title">
+                                <span><span class="arrow">▼</span>{{ .Key }}</span>
+                            </div>
+                            <ul class="namespace-list">
+                                {{ range .Pages }}
+                                    <li class="api-item">
+                                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                                    </li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    {{ end }}
+                {{ end }}
+                
+            </div>
+        </aside>
+
+        <!-- Center Content Area -->
+        <main class="content-area">
+            <article class="prose">
+                <h1>{{ .Title }}</h1>
+                
+                <div class="article-body">
+                    {{ .Content }}
+                    
+                    {{ if .Pages }}
+                        <h2 class="directory-list-title">Directory & Entity Index</h2>
+                        <div class="directory-list-container">
+                            <table class="directory-table">
+                                <thead>
+                                    <tr>
+                                        <th>Entity Name</th>
+                                        <th>Summary / Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{ range .Pages }}
+                                        <tr>
+                                            <td class="directory-name">
+                                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                                            </td>
+                                            <td class="directory-desc">
+                                                {{ .Description | default .Summary | default "API component entity description." }}
+                                            </td>
+                                        </tr>
+                                    {{ end }}
+                                </tbody>
+                            </table>
+                        </div>
+                    {{ end }}
+                </div>
+            </article>
+        </main>
+
+    </div>
+
+    <!-- Central Document Catalog Embedded Footer (REQ-BUS-11, REQ-FUN-34) -->
+    <footer class="doxygen-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                Generated for <strong>UDE API</strong> on {{ now.Format "2006-01-02" }} | Built with <strong>Hugo</strong>
+            </div>
+            <div class="footer-center">
+                <a href="../ude_portal_blueprint.md" class="catalog-link">
+                    📂 <strong>Central Document Catalog (Blueprint v0.4)</strong>
+                </a>
+            </div>
+            <div class="footer-right">
+                Custom Doxygen Theme with <span class="heart">❤</span> for ODA
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Hamburger Button for Mobile -->
+    <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+        </svg>
+    </button>
+
+    <!-- Premium Interactive JS Utilities -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Collapsible Namespaces
+            document.querySelectorAll('.namespace-title').forEach(title => {
+                title.addEventListener('click', () => {
+                    title.parentElement.classList.toggle('collapsed');
+                });
+            });
+
+            // Mobile Menu Toggle
+            const toggleBtn = document.querySelector('.mobile-menu-toggle');
+            const sidebar = document.querySelector('.left-sidebar');
+            if (toggleBtn && sidebar) {
+                toggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    sidebar.classList.toggle('active');
+                });
+                document.addEventListener('click', (e) => {
+                    if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && e.target !== toggleBtn) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            }
+
+            // Client-side Live Search Filter
+            const searchInput = document.getElementById('api-search');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const query = e.target.value.toLowerCase();
+                    document.querySelectorAll('.api-item').forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        if (text.includes(query)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    document.querySelectorAll('.namespace-group').forEach(group => {
+                        const allItems = group.querySelectorAll('.api-item');
+                        let hasVisible = false;
+                        allItems.forEach(item => {
+                            if (item.style.display !== 'none') hasVisible = true;
+                        });
+                        if (hasVisible) {
+                            group.style.display = '';
+                        } else {
+                            group.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
