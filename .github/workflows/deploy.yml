@@ -72,13 +72,13 @@ jobs:
         run: |
           PYTHONPATH=engine python -m ude.cli --config ude_config_self.json
 
-      - name: Compile Hugo Site (API Reference)
-        run: |
-          hugo -s hugo-site -d ../.vitepress/public/api
-
       - name: Build VitePress Site
         run: |
           npm run docs:build
+
+      - name: Compile Hugo Site (API Reference)
+        run: |
+          hugo -s hugo-site -d ../.vitepress/dist/api
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
