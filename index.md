@@ -11,10 +11,7 @@ hero:
       link: /docs/getting-started
     - theme: alt
       text: API Reference
-      link: /api/
-    - theme: alt
-      text: Design Specs
-      link: https://Sir-Derryk.github.io/ude-design-docs/
+      link: https://sir-derryk.github.io/ude-user-docs/api/
 
 features:
   - icon: 🛠️
