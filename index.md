@@ -19,8 +19,8 @@ features:
     details: Detailed, step-by-step guides for project integration, custom configurations, and best practices in code commenting.
   - icon: 🛠️
     title: Interactive API Reference
-    details: Fast, offline-ready reference documentation generated on-the-fly from code structure metadata and comments.
+    details: Fast reference documentation generated on-the-fly from code structure metadata and comments.
   - icon: 🚀
     title: Modern SSG Pipelines
-    details: Built with modern static site generators (VitePress & Hugo) to provide premium typography, responsive layouts, and instant navigation.
+    details: Built with modern static site generators to provide premium typography, responsive layouts, and instant navigation.
 ---
