@@ -8,8 +8,11 @@ export default defineConfig({
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap' }],
-    ['link', { rel: 'icon', type: 'image/png', href: '/ude-user-docs/favicon.png' }]
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]
   ],
+  vite: {
+    publicDir: '.vitepress/public'
+  },
   ignoreDeadLinks: [
     /^\/api/
   ],
