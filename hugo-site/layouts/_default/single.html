@@ -614,6 +614,29 @@
         a:hover {
             color: #8B5CF6;
         }
+
+        /* Heading Anchors Style (Hugo) */
+        .header-anchor {
+            color: #06B6D4; /* Electric Cyan */
+            text-decoration: none !important;
+            border-bottom: none !important; /* Override standard link underline */
+            margin-left: 8px;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, color 0.2s;
+            font-weight: 500;
+        }
+        
+        .prose h2:hover .header-anchor,
+        .prose h3:hover .header-anchor,
+        .prose h4:hover .header-anchor,
+        .prose h5:hover .header-anchor,
+        .prose h6:hover .header-anchor {
+            opacity: 1;
+        }
+        
+        .header-anchor:hover {
+            color: #8B5CF6 !important; /* Quantum Purple on hover */
+        }
     
     </style>
 </head>
@@ -736,6 +759,19 @@
     <!-- Premium Interactive JS Utilities -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Add permalink anchors to headings with IDs
+            document.querySelectorAll('.prose h2, .prose h3, .prose h4, .prose h5, .prose h6').forEach(heading => {
+                const id = heading.getAttribute('id');
+                if (id) {
+                    const anchor = document.createElement('a');
+                    anchor.className = 'header-anchor';
+                    anchor.href = `#${id}`;
+                    anchor.textContent = '#';
+                    anchor.title = 'Permalink to this section';
+                    heading.appendChild(anchor);
+                }
+            });
+
             // Collapsible Namespaces
             document.querySelectorAll('.namespace-title').forEach(title => {
                 title.addEventListener('click', () => {

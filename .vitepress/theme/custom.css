@@ -316,3 +316,27 @@
   display: none !important;
 }
 
+/* Shift VitePress heading anchor links (#) to the right of the heading text on hover */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+.vp-doc h1 .header-anchor,
+.vp-doc h2 .header-anchor,
+.vp-doc h3 .header-anchor,
+.vp-doc h4 .header-anchor,
+.vp-doc h5 .header-anchor,
+.vp-doc h6 .header-anchor {
+  float: none !important;
+  margin-left: 0.35em !important;
+  order: 2 !important;
+  padding-right: 0 !important;
+}
+
