@@ -8,4 +8,4 @@ title = 'UDE API Reference'
       unsafe = true # Allow HTML in Markdown if needed
 
 [permalinks]
-  api = "/:filename/"
+  api = "/:contentbasename/"
