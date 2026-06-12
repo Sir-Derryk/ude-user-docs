@@ -13,3 +13,10 @@ user-docs/dist/api/
 .DS_Store
 Thumbs.db
 *.log
+
+# Hugo development & build files
+hugo-site/public/
+hugo-site/.hugo_build.lock
+
+# Temporary/symlinked engine folder
+engine/
