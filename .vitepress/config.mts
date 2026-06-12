@@ -19,7 +19,10 @@ export default defineConfig({
   
   themeConfig: {
     logo: '/logo.svg',
-    outline: 'deep',
+    outline: {
+      level: [2, 6],
+      label: 'On this page'
+    },
     
     nav: [
       { text: 'Home', link: '/' },

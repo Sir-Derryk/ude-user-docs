@@ -90,14 +90,25 @@
 
 /* Table of Contents / Outline custom premium styling (Quantum Lift) */
 .outline-link {
-  transition: all 0.2s ease-in-out !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .outline-link:hover {
   color: #8B5CF6 !important; /* Quantum Purple hover */
+  padding-left: 4px;
 }
 .outline-link.active {
   color: #06B6D4 !important; /* Electric Cyan active */
   font-weight: 600 !important;
+}
+
+/* Table of Contents / Outline Responsive & Premium Adjustments */
+@media (min-width: 1200px) {
+  .VPDoc.has-aside .aside {
+    display: block !important;
+  }
+  .VPDoc.has-aside .content-container {
+    max-width: 688px !important;
+  }
 }
 
 
