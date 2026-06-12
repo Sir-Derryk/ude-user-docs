@@ -343,3 +343,40 @@
   padding-right: 0 !important;
 }
 
+/* Color VitePress heading anchor links to match Docusaurus exactly */
+.vp-doc h1 .header-anchor,
+.vp-doc h2 .header-anchor,
+.vp-doc h3 .header-anchor,
+.vp-doc h4 .header-anchor,
+.vp-doc h5 .header-anchor,
+.vp-doc h6 .header-anchor {
+  color: #0891B2 !important; /* Docusaurus light primary */
+}
+
+.dark .vp-doc h1 .header-anchor,
+.dark .vp-doc h2 .header-anchor,
+.dark .vp-doc h3 .header-anchor,
+.dark .vp-doc h4 .header-anchor,
+.dark .vp-doc h5 .header-anchor,
+.dark .vp-doc h6 .header-anchor {
+  color: #06B6D4 !important; /* Docusaurus dark primary */
+}
+
+.vp-doc h1:hover .header-anchor:hover,
+.vp-doc h2:hover .header-anchor:hover,
+.vp-doc h3:hover .header-anchor:hover,
+.vp-doc h4:hover .header-anchor:hover,
+.vp-doc h5:hover .header-anchor:hover,
+.vp-doc h6:hover .header-anchor:hover {
+  color: #0e7490 !important; /* Docusaurus primary-dark on hover */
+}
+
+.dark .vp-doc h1:hover .header-anchor:hover,
+.dark .vp-doc h2:hover .header-anchor:hover,
+.dark .vp-doc h3:hover .header-anchor:hover,
+.dark .vp-doc h4:hover .header-anchor:hover,
+.dark .vp-doc h5:hover .header-anchor:hover,
+.dark .vp-doc h6:hover .header-anchor:hover {
+  color: #22d3ee !important; /* Docusaurus primary-light on hover */
+}
+
