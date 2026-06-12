@@ -103,6 +103,11 @@
 
 /* Table of Contents / Outline Responsive & Premium Adjustments */
 @media (min-width: 1200px) {
+  .VPDoc .container {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) var(--vp-aside-width) !important;
+    gap: 32px !important;
+  }
   .VPDoc.has-aside .aside {
     display: block !important;
   }
