@@ -102,12 +102,37 @@
 }
 
 /* Table of Contents / Outline Responsive & Premium Adjustments */
+
+:root {
+  --vp-aside-width: 256px;
+}
+
+/* Ensure the fixed aside container respects our custom width and allows text wrapping */
+.aside-container {
+  width: var(--vp-aside-width) !important;
+  max-width: var(--vp-aside-width) !important;
+  transition: width 0.3s ease !important;
+}
+
+/* Premium smooth wrapping for outline links with elegant micro-spacing */
+.outline-link {
+  white-space: normal !important;
+  line-height: 1.4 !important;
+  padding: 5px 0 !important;
+  display: block !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
 @media (min-width: 1200px) and (max-width: 1279px) {
+  :root {
+    --vp-aside-width: 280px;
+  }
   .VPDoc .container {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: center !important;
-    gap: 20px !important;
+    justify-content: space-between !important;
+    gap: 24px !important;
     padding: 0 24px 128px 24px !important;
   }
   .VPDoc .content {
@@ -115,7 +140,7 @@
     margin: 0 !important;
     width: 100% !important;
     min-width: 0 !important;
-    max-width: 580px !important;
+    max-width: 100% !important;
   }
   .VPDoc.has-aside .aside {
     display: block !important;
@@ -133,11 +158,14 @@
 }
 
 @media (min-width: 1280px) and (max-width: 1439px) {
+  :root {
+    --vp-aside-width: 300px;
+  }
   .VPDoc .container {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: center !important;
-    gap: 24px !important;
+    justify-content: space-between !important;
+    gap: 32px !important;
     padding: 0 32px 128px 32px !important;
   }
   .VPDoc .content {
@@ -145,7 +173,7 @@
     margin: 0 !important;
     width: 100% !important;
     min-width: 0 !important;
-    max-width: 640px !important;
+    max-width: 100% !important;
   }
   .VPDoc.has-aside .aside {
     display: block !important;
@@ -163,11 +191,14 @@
 }
 
 @media (min-width: 1440px) {
+  :root {
+    --vp-aside-width: 340px;
+  }
   .VPDoc .container {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: center !important;
-    gap: 32px !important;
+    justify-content: space-between !important;
+    gap: 40px !important;
     padding: 0 64px 128px 64px !important;
   }
   .VPDoc .content {
@@ -175,7 +206,7 @@
     margin: 0 !important;
     width: 100% !important;
     min-width: 0 !important;
-    max-width: 688px !important;
+    max-width: 100% !important;
   }
   .VPDoc.has-aside .aside {
     display: block !important;
