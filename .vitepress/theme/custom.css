@@ -106,10 +106,15 @@
   .VPDoc .container {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) var(--vp-aside-width) !important;
+    grid-template-areas: "content aside" !important;
     gap: 32px !important;
+  }
+  .VPDoc .content {
+    grid-area: content !important;
   }
   .VPDoc.has-aside .aside {
     display: block !important;
+    grid-area: aside !important;
   }
   .VPDoc.has-aside .content-container {
     max-width: 688px !important;
