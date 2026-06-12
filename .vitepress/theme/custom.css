@@ -310,3 +310,9 @@
   background-color: rgba(255, 255, 255, 0.22) !important;
   border-color: rgba(255, 255, 255, 0.5) !important;
 }
+
+/* Hide the mobile LocalNav outline dropdown ("On this page >") selector */
+.VPLocalNavOutlineDropdown {
+  display: none !important;
+}
+
