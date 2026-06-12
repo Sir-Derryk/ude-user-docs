@@ -334,7 +334,10 @@
 .vp-doc h4 .header-anchor,
 .vp-doc h5 .header-anchor,
 .vp-doc h6 .header-anchor {
+  position: relative !important; /* Override default absolute positioning to allow flexbox ordering */
   float: none !important;
+  left: auto !important;
+  right: auto !important;
   margin-left: 0.35em !important;
   order: 2 !important;
   padding-right: 0 !important;
