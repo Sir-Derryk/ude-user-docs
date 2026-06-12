@@ -23,15 +23,14 @@ export default defineConfig({
   
   themeConfig: {
     logo: '/logo.png',
+    siteTitle: 'Universal Documentation Engine User Guide',
     outline: {
       level: [2, 6],
       label: 'On this page'
     },
     
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'User Guides', link: '/docs/getting-started' },
-      { text: 'API Reference', link: 'https://sir-derryk.github.io/ude-user-docs/api/' }
+      { text: 'API Reference', link: 'https://sir-derryk.github.io/ude-user-docs/api/', target: '_blank', rel: 'noopener noreferrer' }
     ],
 
     sidebar: {
@@ -76,7 +75,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Sir-Derryk/universal-document-engine' }
+      { icon: 'github', link: 'https://github.com/Sir-Derryk/ude-user-docs' }
     ],
 
     footer: {
