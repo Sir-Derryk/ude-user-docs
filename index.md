@@ -3,24 +3,24 @@ layout: home
 
 hero:
   name: "Universal Document Engine"
-  text: "Documentation-as-Code. Redefined."
+  text: "User Guides & API Reference"
   tagline: "Generate modern, high-aesthetic developer portals and API references instantly."
   actions:
     - theme: brand
-      text: Get Started
+      text: Read User Guides 📘
       link: /docs/getting-started
     - theme: alt
-      text: API Reference
-      link: https://sir-derryk.github.io/ude-user-docs/api/
+      text: Explore API Reference 🛠️
+      link: /api/
 
 features:
+  - icon: 📘
+    title: Developer Manuals
+    details: Detailed, step-by-step guides for project integration, custom configurations, and best practices in code commenting.
   - icon: 🛠️
-    title: Pipeline-Driven
-    details: Clean separation between code parsing, internal AST processing, and Markdown generation.
+    title: Interactive API Reference
+    details: Fast, offline-ready reference documentation generated on-the-fly from code structure metadata and comments.
   - icon: 🚀
-    title: Blazing Fast
-    details: Leveraging Hugo for massive API References and VitePress for human guides.
-  - icon: 🤖
-    title: RAG Ready
-    details: Native export to semantic JSON format designed for LLM and vector database ingestion.
+    title: Modern SSG Pipelines
+    details: Built with modern static site generators (VitePress & Hugo) to provide premium typography, responsive layouts, and instant navigation.
 ---

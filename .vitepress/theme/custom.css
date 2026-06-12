@@ -223,4 +223,87 @@
   }
 }
 
+/* --- Docusaurus-aligned Premium Hero Section --- */
+.VPHero {
+  background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%) !important;
+  padding: 112px 24px !important;
+  text-align: center !important;
+  margin-top: calc(-1 * var(--vp-nav-height)) !important; /* pull hero under transparent navbar exactly like Docusaurus */
+  padding-top: calc(112px + var(--vp-nav-height)) !important;
+}
 
+.VPHero .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  max-width: 1152px !important;
+  margin: 0 auto !important;
+}
+
+.VPHero .main {
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 800px !important;
+}
+
+.VPHero .name {
+  color: #ffffff !important;
+  font-size: 56px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 8px !important;
+  text-align: center !important;
+}
+
+.VPHero .text {
+  color: #ffffff !important;
+  font-size: 56px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+}
+
+.VPHero .tagline {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+  max-width: 640px !important;
+  margin: 0 auto 32px auto !important;
+  text-align: center !important;
+  font-weight: 400 !important;
+}
+
+.VPHero .actions {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Custom premium hover adjustments for Hero buttons */
+.VPButton.brand {
+  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.4) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.VPButton.brand:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.6) !important;
+}
+
+.VPButton.alt {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(4px) !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+}
+.VPButton.alt:hover {
+  transform: translateY(-2px) !important;
+  background-color: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
