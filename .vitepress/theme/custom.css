@@ -104,62 +104,91 @@
 /* Table of Contents / Outline Responsive & Premium Adjustments */
 @media (min-width: 1200px) and (max-width: 1279px) {
   .VPDoc .container {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) var(--vp-aside-width) !important;
-    grid-template-areas: "content aside" !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
     gap: 20px !important;
     padding: 0 24px 128px 24px !important;
   }
   .VPDoc .content {
-    grid-area: content !important;
+    order: 1 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 580px !important;
   }
   .VPDoc.has-aside .aside {
     display: block !important;
-    grid-area: aside !important;
+    order: 2 !important;
+    padding-left: 0 !important;
     width: var(--vp-aside-width) !important;
+    max-width: var(--vp-aside-width) !important;
   }
-  .VPDoc.has-aside .content-container {
-    max-width: 580px !important;
+  .VPDoc.has-aside .aside.left-aside {
+    order: 1 !important;
+  }
+  .VPDoc.has-aside .aside.left-aside + .content {
+    order: 2 !important;
   }
 }
 
 @media (min-width: 1280px) and (max-width: 1439px) {
   .VPDoc .container {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) var(--vp-aside-width) !important;
-    grid-template-areas: "content aside" !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
     gap: 24px !important;
     padding: 0 32px 128px 32px !important;
   }
   .VPDoc .content {
-    grid-area: content !important;
+    order: 1 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 640px !important;
   }
   .VPDoc.has-aside .aside {
     display: block !important;
-    grid-area: aside !important;
+    order: 2 !important;
+    padding-left: 0 !important;
+    width: var(--vp-aside-width) !important;
+    max-width: var(--vp-aside-width) !important;
   }
-  .VPDoc.has-aside .content-container {
-    max-width: 640px !important;
+  .VPDoc.has-aside .aside.left-aside {
+    order: 1 !important;
+  }
+  .VPDoc.has-aside .aside.left-aside + .content {
+    order: 2 !important;
   }
 }
 
 @media (min-width: 1440px) {
   .VPDoc .container {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) var(--vp-aside-width) !important;
-    grid-template-areas: "content aside" !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
     gap: 32px !important;
     padding: 0 64px 128px 64px !important;
   }
   .VPDoc .content {
-    grid-area: content !important;
+    order: 1 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 688px !important;
   }
   .VPDoc.has-aside .aside {
     display: block !important;
-    grid-area: aside !important;
+    order: 2 !important;
+    padding-left: 0 !important;
+    width: var(--vp-aside-width) !important;
+    max-width: var(--vp-aside-width) !important;
   }
-  .VPDoc.has-aside .content-container {
-    max-width: 688px !important;
+  .VPDoc.has-aside .aside.left-aside {
+    order: 1 !important;
+  }
+  .VPDoc.has-aside .aside.left-aside + .content {
+    order: 2 !important;
   }
 }
 
