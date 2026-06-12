@@ -22,7 +22,7 @@ export default defineConfig({
   ],
   
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/logo.svg',
     outline: {
       level: [2, 6],
       label: 'On this page'
