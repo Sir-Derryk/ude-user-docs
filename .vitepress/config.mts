@@ -7,7 +7,8 @@ export default defineConfig({
   head: [
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap' }]
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]
   ],
   ignoreDeadLinks: [
     /^\/api/
@@ -18,7 +19,7 @@ export default defineConfig({
   ],
   
   themeConfig: {
-    logo: '/logo.svg',
+    logo: '/logo.png',
     outline: {
       level: [2, 6],
       label: 'On this page'
