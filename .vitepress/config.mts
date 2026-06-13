@@ -23,21 +23,21 @@ export default defineConfig({
   
   themeConfig: {
     logo: '/logo.png',
+    siteTitle: 'Universal Documentation Engine User Guide',
     outline: {
       level: [2, 6],
       label: 'On this page'
     },
     
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'User Guides', link: '/docs/getting-started' },
-      { text: 'API Reference', link: 'https://sir-derryk.github.io/ude-user-docs/api/' }
+      { text: 'API Reference', link: 'https://sir-derryk.github.io/ude-user-docs/api/', target: '_blank', rel: 'noopener noreferrer' }
     ],
 
     sidebar: {
       '/docs/': [
         {
           text: 'Chapter 1: Quick Start',
+          link: '/docs/getting-started',
           collapsed: false,
           items: [
             { text: 'Getting Started', link: '/docs/getting-started' },
@@ -46,6 +46,7 @@ export default defineConfig({
         },
         {
           text: 'Chapter 2: Coding Standards',
+          link: '/docs/commenting-rules',
           collapsed: false,
           items: [
             { text: 'Commenting Rules', link: '/docs/commenting-rules' },
@@ -54,6 +55,7 @@ export default defineConfig({
         },
         {
           text: 'Chapter 3: Config Reference',
+          link: '/docs/global-settings',
           collapsed: false,
           items: [
             { text: 'Global Settings', link: '/docs/global-settings' },
@@ -62,6 +64,7 @@ export default defineConfig({
         },
         {
           text: 'Chapter 4: Case Study & Deployment',
+          link: '/docs/case-study',
           collapsed: false,
           items: [
             { text: 'Case Study (Dogfooding)', link: '/docs/case-study' },
@@ -72,12 +75,11 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Sir-Derryk/universal-document-engine' }
+      { icon: 'github', link: 'https://github.com/Sir-Derryk/ude-user-docs' }
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2026-present Sir-Derryk'
+      copyright: 'Copyright © 2026'
     }
   }
 })

@@ -223,4 +223,319 @@
   }
 }
 
+/* Ensure navigation bar is always opaque immediately, preventing background bleed */
+.VPNavBar {
+  background-color: var(--vp-nav-bg-color) !important;
+}
+
+/* --- Docusaurus-aligned Premium Hero Section --- */
+.VPHero {
+  background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%) !important;
+  padding: 112px 24px !important;
+  text-align: center !important;
+}
+
+.VPHero .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  max-width: 1152px !important;
+  margin: 0 auto !important;
+}
+
+.VPHero .main {
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 800px !important;
+}
+
+.VPHero .name {
+  color: #ffffff !important;
+  font-size: 56px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 8px !important;
+  text-align: center !important;
+}
+
+.VPHero .text {
+  color: #ffffff !important;
+  font-size: 56px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+}
+
+.VPHero .tagline {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+  max-width: 640px !important;
+  margin: 0 auto 32px auto !important;
+  text-align: center !important;
+  font-weight: 400 !important;
+}
+
+.VPHero .actions {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Custom premium hover adjustments for Hero buttons */
+.VPButton.brand {
+  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.4) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.VPButton.brand:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.6) !important;
+}
+
+.VPButton.alt {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(4px) !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+}
+.VPButton.alt:hover {
+  transform: translateY(-2px) !important;
+  background-color: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Hide the mobile LocalNav outline dropdown ("On this page >") selector */
+.VPLocalNavOutlineDropdown {
+  display: none !important;
+}
+
+/* Shift VitePress heading anchor links (#) to the right of the heading text on hover */
+.vp-doc h1 .header-anchor,
+.vp-doc h2 .header-anchor,
+.vp-doc h3 .header-anchor,
+.vp-doc h4 .header-anchor,
+.vp-doc h5 .header-anchor,
+.vp-doc h6 .header-anchor {
+  position: relative !important;
+  top: 0 !important; /* Override default 24px top offset for h2 */
+  display: inline-block !important;
+  vertical-align: middle !important; /* Perfect vertical alignment with letters */
+  float: none !important;
+  left: auto !important;
+  right: auto !important;
+  margin-left: 0.35em !important;
+  padding-right: 0 !important;
+}
+
+/* Color VitePress heading anchor links to match Docusaurus exactly */
+.vp-doc h1 .header-anchor,
+.vp-doc h2 .header-anchor,
+.vp-doc h3 .header-anchor,
+.vp-doc h4 .header-anchor,
+.vp-doc h5 .header-anchor,
+.vp-doc h6 .header-anchor {
+  color: #0891B2 !important; /* Docusaurus light primary */
+}
+
+.dark .vp-doc h1 .header-anchor,
+.dark .vp-doc h2 .header-anchor,
+.dark .vp-doc h3 .header-anchor,
+.dark .vp-doc h4 .header-anchor,
+.dark .vp-doc h5 .header-anchor,
+.dark .vp-doc h6 .header-anchor {
+  color: #06B6D4 !important; /* Docusaurus dark primary */
+}
+
+.vp-doc h1:hover .header-anchor:hover,
+.vp-doc h2:hover .header-anchor:hover,
+.vp-doc h3:hover .header-anchor:hover,
+.vp-doc h4:hover .header-anchor:hover,
+.vp-doc h5:hover .header-anchor:hover,
+.vp-doc h6:hover .header-anchor:hover {
+  color: #0e7490 !important; /* Docusaurus primary-dark on hover */
+}
+
+.dark .vp-doc h1:hover .header-anchor:hover,
+.dark .vp-doc h2:hover .header-anchor:hover,
+.dark .vp-doc h3:hover .header-anchor:hover,
+.dark .vp-doc h4:hover .header-anchor:hover,
+.dark .vp-doc h5:hover .header-anchor:hover,
+.dark .vp-doc h6:hover .header-anchor:hover {
+  color: #22d3ee !important; /* Docusaurus primary-light on hover */
+}
+
+/* Standardized Universal Documentation Engine Header styling */
+.VPNavBar {
+  height: 64px !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: background-color 0.3s, border-color 0.3s !important;
+}
+
+.dark .VPNavBar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(24, 24, 27, 0.8) !important;
+}
+
+.VPNavBarTitle .logo,
+.VPNavBarLogo,
+.logo {
+  height: 32px !important;
+  width: auto !important;
+  border-radius: 6px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.VPNavBarTitle .logo:hover,
+.VPNavBarLogo:hover,
+.logo:hover {
+  transform: scale(1.05) !important;
+}
+
+.VPNavBarTitle .title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: #0f172a !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.dark .VPNavBarTitle .title {
+  color: #f8fafc !important;
+}
+
+.VPNavBarMenuLink {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: #475569 !important;
+  transition: color 0.2s !important;
+  height: 64px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.VPNavBarMenuLink:hover {
+  color: #0f172a !important;
+}
+
+.dark .VPNavBarMenuLink {
+  color: #94a3b8 !important;
+}
+
+.dark .VPNavBarMenuLink:hover {
+  color: #f8fafc !important;
+}
+
+.VPNavBarMenuLink.active {
+  color: #06b6d4 !important;
+  font-weight: 600 !important;
+}
+
+/* Hide default VitePress appearance toggle completely */
+.VPNavBarAppearance,
+.VPNavScreenAppearance,
+.VPNavBarExtra,
+.VPLocalNavOutlineDropdown {
+  display: none !important;
+}
+
+/* Align header navigation menu to the left (immediately after logo and title) */
+@media (min-width: 768px) {
+  .VPNavBarMenu {
+    order: -1 !important;
+    margin-right: auto !important;
+    margin-left: 32px !important;
+    padding-left: 0 !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Force social links block (GitHub icon) to be visible on desktop screens */
+@media (min-width: 768px) {
+  .VPNavBarSocialLinks {
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
+/* Style GitHub icon as a premium circular button matching the theme toggle */
+.VPSocialLink {
+  border-radius: 50% !important;
+  transition: background-color 0.2s, color 0.2s !important;
+}
+
+.VPSocialLink:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+}
+
+.dark .VPSocialLink:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #f8fafc !important;
+}
+
+/* Remove default vertical dividers in the header for visual consistency */
+.menu+.translations::before,
+.menu+.appearance::before,
+.menu+.social-links::before,
+.translations+.appearance::before,
+.appearance+.social-links::before {
+  display: none !important;
+}
+
+/* Standardized external link icon styling across SSGs (square with arrow) */
+.vp-external-link-icon::after {
+  content: "" !important;
+  width: 13.5px !important;
+  height: 13.5px !important;
+  color: #94a3b8 !important;
+  background-color: currentColor !important;
+  background-image: none !important; /* Clear standard background image */
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21 13v10t-2 2h-16t-2-2v-16t2-2h10v2h-10v16h16v-10h2zM15 3h10v10h-2v-6.5l-11 11.5-1.5-1.5 11-11.5h-6.5v-2z'/%3E%3C/svg%3E") !important;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21 13v10t-2 2h-16t-2-2v-16t2-2h10v2h-10v16h16v-10h2zM15 3h10v10h-2v-6.5l-11 11.5-1.5-1.5 11-11.5h-6.5v-2z'/%3E%3C/svg%3E") !important;
+  mask-repeat: no-repeat !important;
+  mask-size: contain !important;
+  -webkit-mask-repeat: no-repeat !important;
+  -webkit-mask-size: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-left: 6px !important;
+}
+
+/* Allow the API Reference navbar link to align dynamically after the long title */
+@media (min-width: 960px) {
+  /* Override absolute positioning of title to let it flow naturally in flex */
+  .VPNavBar.has-sidebar .title {
+    position: static !important;
+    width: auto !important;
+    border-right: none !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Remove artificial padding from content block since title is no longer absolute */
+  .VPNavBar.has-sidebar .content {
+    padding-left: 0 !important;
+  }
+
+  /* Ensure title container inside it behaves correctly */
+  .VPNavBarTitle {
+    width: auto !important;
+    border-right: none !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+
 
