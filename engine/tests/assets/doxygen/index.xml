@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8">
-  <compound refid="class_my_class" kind="class">
-    <name>MyClass</name>
-    <member refid="class_my_class_1a1" kind="function"><name>doSomething</name></member>
-  </compound>
-</doxygenindex>
