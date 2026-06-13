@@ -38,7 +38,7 @@ export default withMermaid(defineConfig({
       '/docs/': [
         {
           text: 'Chapter 1: Quick Start',
-          link: '/docs/getting-started',
+          link: '/docs/chapter1-quick-start',
           collapsed: false,
           items: [
             { text: 'Getting Started', link: '/docs/getting-started' },
@@ -47,7 +47,7 @@ export default withMermaid(defineConfig({
         },
         {
           text: 'Chapter 2: Coding Standards',
-          link: '/docs/commenting-rules',
+          link: '/docs/chapter2-coding-standards',
           collapsed: false,
           items: [
             { text: 'Commenting Rules', link: '/docs/commenting-rules' },
@@ -56,7 +56,7 @@ export default withMermaid(defineConfig({
         },
         {
           text: 'Chapter 3: Config Reference',
-          link: '/docs/global-settings',
+          link: '/docs/chapter3-config-reference',
           collapsed: false,
           items: [
             { text: 'Global Settings', link: '/docs/global-settings' },
@@ -65,7 +65,7 @@ export default withMermaid(defineConfig({
         },
         {
           text: 'Chapter 4: Case Study & Deployment',
-          link: '/docs/case-study',
+          link: '/docs/chapter4-case-study',
           collapsed: false,
           items: [
             { text: 'Case Study (Dogfooding)', link: '/docs/case-study' },

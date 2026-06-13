@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Read User Guides 📘
-      link: /docs/getting-started
+      link: /docs/chapter1-quick-start
     - theme: alt
       text: Explore API Reference 🛠️
       link: /api/
