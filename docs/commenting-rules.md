@@ -47,9 +47,10 @@ def compute_bounds(mesh, tolerance):
     """
 ```
 
-> [!NOTE]
-> **Functional Traceability**:
-> The automatic format detection and parsing pipeline traces directly to **[REQ-FUN-20: Docstring Normalization Engine](https://Sir-Derryk.github.io/ude-design-docs/docs/srs/functional#req-fun-20)**.
+:::note
+**Functional Traceability**:
+The automatic format detection and parsing pipeline traces directly to **[REQ-FUN-20: Docstring Normalization Engine](https://Sir-Derryk.github.io/ude-design-docs/docs/srs/functional#req-fun-20)**.
+:::
 
 ---
 

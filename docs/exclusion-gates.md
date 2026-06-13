@@ -45,9 +45,10 @@ Marks an entire class, method, or field as internal. UDE automatically filters t
 class BufferLayoutManager { ... };
 ```
 
-> [!NOTE]
-> **Functional Traceability**:
-> Direct support for inline annotation filtering traces to **[REQ-FUN-30: Exclusion Filters](https://Sir-Derryk.github.io/ude-design-docs/docs/srs/functional#req-fun-30)**.
+:::note
+**Functional Traceability**:
+Direct support for inline annotation filtering traces to **[REQ-FUN-30: Exclusion Filters](https://Sir-Derryk.github.io/ude-design-docs/docs/srs/functional#req-fun-30)**.
+:::
 
 ---
 

@@ -46,9 +46,10 @@ doxygen --version
 ### 📦 Package Managers
 Ensure either `pip` or `poetry` is installed and ready to resolve package dependencies.
 
-> [!NOTE]
-> **Traceability Trace**:
-> This preflight check complies with the strict verification gate defined in Functional Specification **[REQ-FUN-01: Preflight Environment Validation](https://Sir-Derryk.github.io/ude-design-docs/docs/srs/functional#req-fun-01)**.
+:::note
+**Traceability Trace**:
+This preflight check complies with the strict verification gate defined in Functional Specification **[REQ-FUN-01: Preflight Environment Validation](https://Sir-Derryk.github.io/ude-design-docs/docs/srs/functional#req-fun-01)**.
+:::
 
 ---
 

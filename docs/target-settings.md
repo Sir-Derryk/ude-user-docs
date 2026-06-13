@@ -53,9 +53,10 @@ graph TD
 
 This absolute portability ensures that the orchestrator executes identically whether invoked from the project root, the submodule directory, or any arbitrary workspace folder.
 
-> [!NOTE]
-> **Functional Traceability**:
-> This folder resolution standard complies with Functional Specification **[REQ-FUN-12: Configuration Portability Resolution](https://Sir-Derryk.github.io/ude-design-docs/docs/srs/functional#req-fun-12)**.
+:::note
+**Functional Traceability**:
+This folder resolution standard complies with Functional Specification **[REQ-FUN-12: Configuration Portability Resolution](https://Sir-Derryk.github.io/ude-design-docs/docs/srs/functional#req-fun-12)**.
+:::
 
 ---
 
