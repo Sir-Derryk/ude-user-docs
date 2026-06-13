@@ -512,4 +512,13 @@
   margin-left: 6px !important;
 }
 
+/* Allow the API Reference navbar link to align dynamically after the long title */
+@media (min-width: 960px) {
+  .VPNavBarTitle {
+    width: auto !important;
+    border-right: none !important;
+    flex-shrink: 0 !important;
+  }
+}
+
 
