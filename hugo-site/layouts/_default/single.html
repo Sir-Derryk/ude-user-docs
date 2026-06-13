@@ -318,15 +318,14 @@
         .right-sidebar {
             background-color: #ffffff;
             border-left: 1px solid #e2e8f0;
-            padding: 24px 20px;
+            padding: 40px 24px; /* Align top padding with content area (40px) for symmetry */
             overflow-y: auto;
             max-height: calc(100vh - 64px);
             position: sticky;
             top: 64px;
         }
         .toc-sticky {
-            position: sticky;
-            top: 88px;
+            /* Removed redundant sticky position to prevent double-sticky offset bugs and allow natural scrolling of long TOCs */
         }
         .toc-title {
             font-size: 0.8rem;
