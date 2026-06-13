@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: "Universal Document Engine",
   description: "Modern, high-aesthetic developer portals and API references.",
   base: "/ude-user-docs/",
@@ -82,4 +83,4 @@ export default defineConfig({
       copyright: 'Copyright © 2026'
     }
   }
-})
+}))
