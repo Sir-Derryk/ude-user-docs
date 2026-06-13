@@ -456,7 +456,9 @@
   .VPNavBarMenu {
     order: -1 !important;
     margin-right: auto !important;
-    padding-left: 32px !important;
+    margin-left: 32px !important;
+    padding-left: 0 !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -514,11 +516,26 @@
 
 /* Allow the API Reference navbar link to align dynamically after the long title */
 @media (min-width: 960px) {
+  /* Override absolute positioning of title to let it flow naturally in flex */
+  .VPNavBar.has-sidebar .title {
+    position: static !important;
+    width: auto !important;
+    border-right: none !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Remove artificial padding from content block since title is no longer absolute */
+  .VPNavBar.has-sidebar .content {
+    padding-left: 0 !important;
+  }
+
+  /* Ensure title container inside it behaves correctly */
   .VPNavBarTitle {
     width: auto !important;
     border-right: none !important;
     flex-shrink: 0 !important;
   }
 }
+
 
 
