@@ -1,6 +1,7 @@
 baseURL = '/ude-user-docs/api/'
 locale = 'en-us'
 title = 'UDE API Reference'
+uglyURLs = true
 
 [markup]
   [markup.goldmark]
@@ -8,4 +9,4 @@ title = 'UDE API Reference'
       unsafe = true # Allow HTML in Markdown if needed
 
 [permalinks]
-  api = "/:contentbasename/"
+  api = "/:contentbasename"
