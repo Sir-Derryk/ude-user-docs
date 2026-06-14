@@ -9,4 +9,4 @@ uglyURLs = true
       unsafe = true # Allow HTML in Markdown if needed
 
 [permalinks]
-  api = "/:contentbasename"
+  api = "/:sections/:contentbasename"
