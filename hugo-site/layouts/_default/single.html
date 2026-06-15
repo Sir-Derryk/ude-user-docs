@@ -1234,23 +1234,6 @@
                     }
                 });
             }
-
-            // Focus on the active item in the left sidebar and scroll it to the top
-            const activeItem = sidebar ? sidebar.querySelector('.api-item.active') : null;
-            if (activeItem) {
-                // Ensure parent namespace group is expanded (not collapsed)
-                const parentGroup = activeItem.closest('.namespace-group');
-                if (parentGroup) {
-                    parentGroup.classList.remove('collapsed');
-                }
-                let offset = 0;
-                let curr = activeItem;
-                while (curr && curr !== sidebar) {
-                    offset += curr.offsetTop;
-                    curr = curr.offsetParent;
-                }
-                sidebar.scrollTop = offset;
-            }
         });
     </script>
 </body>
