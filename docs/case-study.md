@@ -10,7 +10,7 @@ To prove that the Universal Document Engine can withstand high-load enterprise p
 
 This approach ensures:
 *   **Constant Real-World Verification**: Any parsing or rendering bugs in new commits are caught instantly during our own documentation build.
-*   **Live Demos**: Users can explore the live [API Reference](/api/) to see the exact visual output styles produced by the system.
+*   **Live Demos**: Users can explore the live <a href="/ude-user-docs/api/" rel="external" target="_self">API Reference</a> to see the exact visual output styles produced by the system.
 
 ---
 

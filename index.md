@@ -12,6 +12,8 @@ hero:
     - theme: alt
       text: Explore API Reference 🛠️
       link: /api/
+      target: _self
+      rel: external
 
 features:
   - icon: 📘

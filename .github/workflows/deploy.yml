@@ -79,10 +79,6 @@ jobs:
       - name: Compile Hugo Site (API Reference)
         run: |
           hugo -s hugo-site -d ../.vitepress/dist/api
-          if [ -d ".vitepress/dist/api/api" ]; then
-            mv .vitepress/dist/api/api/* .vitepress/dist/api/
-            rm -rf .vitepress/dist/api/api
-          fi
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
