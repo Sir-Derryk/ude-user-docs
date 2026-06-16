@@ -4,7 +4,7 @@
         "engine/ude"
     ],
     "static_pages_dir": "./",
-    "output_dir": "hugo-site/content/api",
+    "output_dir": "hugo-site/content",
     "incremental": true,
     "collector": {
         "type": "python",
