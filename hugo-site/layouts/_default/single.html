@@ -272,6 +272,15 @@
             background-color: #e2e8f0;
             color: #06B6D4;
         }
+        .namespace-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .namespace-link:hover {
+            color: #06B6D4;
+            text-decoration: none;
+        }
         .namespace-list {
             list-style: none;
             padding: 0;
@@ -973,9 +982,45 @@
 
                 {{ range .Site.RegularPages.GroupByParam "parent" }}
                     {{ if .Key }}
+                        {{ $key := .Key }}
+                        {{ $relPath := "" }}
+                        {{ if in $key "::" }}
+                            {{ $parts := split $key "::" }}
+                            {{ $numParts := len $parts }}
+                            {{ if gt $numParts 1 }}
+                                {{ $last := index $parts (sub $numParts 1) }}
+                                {{ $frontParts := first (sub $numParts 1) $parts }}
+                                {{ $front := delimit $frontParts "__" }}
+                                {{ $relPath = printf "%s/%s" $front $last }}
+                            {{ else }}
+                                {{ $relPath = $key }}
+                            {{ end }}
+                        {{ else if in $key "." }}
+                            {{ $parts := split $key "." }}
+                            {{ $numParts := len $parts }}
+                            {{ if gt $numParts 1 }}
+                                {{ $last := index $parts (sub $numParts 1) }}
+                                {{ $frontParts := first (sub $numParts 1) $parts }}
+                                {{ $front := delimit $frontParts "." }}
+                                {{ $relPath = printf "%s/%s" $front $last }}
+                            {{ else }}
+                                {{ $relPath = $key }}
+                            {{ end }}
+                        {{ else }}
+                            {{ $relPath = $key }}
+                        {{ end }}
+                        {{ $relPath = replace $relPath " " "_" }}
+                        {{ $sectionPage := $.Site.GetPage $relPath }}
                         <div class="namespace-group">
                             <div class="namespace-title">
-                                <span><span class="arrow">▼</span>{{ .Key }}</span>
+                                <span>
+                                    <span class="arrow">▼</span>
+                                    {{ if $sectionPage }}
+                                        <a href="{{ $sectionPage.RelPermalink }}" class="namespace-link">{{ .Key }}</a>
+                                    {{ else }}
+                                        <span class="namespace-text">{{ .Key }}</span>
+                                    {{ end }}
+                                </span>
                             </div>
                             <ul class="namespace-list">
                                 {{ range .Pages }}
@@ -1022,7 +1067,7 @@
                 Generated for <strong>UDE API</strong> on {{ now.Format "2006-01-02" }} | Built with <strong>Hugo</strong>
             </div>
             <div class="footer-center">
-                <a href="../ude_portal_blueprint.md" class="catalog-link">
+                <a href="/ude-user-docs/" class="catalog-link">
                     📂 <strong>Central Document Catalog (Blueprint v0.4)</strong>
                 </a>
             </div>
@@ -1057,7 +1102,11 @@
 
             // Collapsible Namespaces
             document.querySelectorAll('.namespace-title').forEach(title => {
-                title.addEventListener('click', () => {
+                title.addEventListener('click', (e) => {
+                    if (e.target.closest('.namespace-link')) {
+                        e.stopPropagation();
+                        return;
+                    }
                     title.parentElement.classList.toggle('collapsed');
                 });
             });
