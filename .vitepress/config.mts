@@ -31,6 +31,7 @@ export default withMermaid(defineConfig({
     },
     
     nav: [
+      { text: 'User Docs', link: '/docs/chapter1-quick-start' },
       { text: 'API Reference', link: 'https://sir-derryk.github.io/ude-user-docs/api/', target: '_blank', rel: 'noopener noreferrer' }
     ],
 
