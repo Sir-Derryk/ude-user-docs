@@ -24,14 +24,14 @@ export default withMermaid(defineConfig({
   
   themeConfig: {
     logo: '/logo.png',
-    siteTitle: 'Universal Documentation Engine User Guide',
+    siteTitle: 'Universal Documentation Engine Operational Documentation',
     outline: {
       level: [2, 6],
       label: 'On this page'
     },
     
     nav: [
-      { text: 'User Docs', link: '/docs/chapter1-quick-start' },
+      { text: 'User Docs', link: '/docs/chapter1-quick-start', target: '_blank', rel: 'noopener noreferrer' },
       { text: 'API Reference', link: 'https://sir-derryk.github.io/ude-user-docs/api/', target: '_blank', rel: 'noopener noreferrer' }
     ],
 
