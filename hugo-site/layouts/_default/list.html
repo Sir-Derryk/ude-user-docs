@@ -829,7 +829,7 @@
                                 <span>
                                     <span class="arrow">▼</span>
                                     {{ if $sectionPage }}
-                                        <a href="{{ $sectionPage.RelPermalink }}" class="namespace-link">{{ .Key }}</a>
+                                        <a href="{{ $sectionPage.RelPermalink }}" class="namespace-link">{{ $sectionPage.Title | default .Key }}</a>
                                     {{ else }}
                                         <span class="namespace-text">{{ .Key }}</span>
                                     {{ end }}
