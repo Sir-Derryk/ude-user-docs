@@ -1,0 +1,12 @@
+baseURL = '/ude-user-docs/api/'
+locale = 'en-us'
+title = 'UDE API Reference'
+uglyURLs = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # Allow HTML in Markdown if needed
+
+[permalinks]
+  api = "/:sections/:contentbasename"

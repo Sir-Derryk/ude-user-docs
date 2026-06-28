@@ -1,0 +1,20 @@
+{
+    "project_name": "UDE API Reference",
+    "src_dir": [
+        "engine/ude"
+    ],
+    "static_pages_dir": "./",
+    "output_dir": "hugo-site/content",
+    "incremental": true,
+    "collector": {
+        "type": "doxygen",
+        "language": "python",
+        "doxyfile_template": "Doxyfile"
+    },
+    "parser": {
+        "type": "doxygen_xml"
+    },
+    "renderer": {
+        "type": "hugo_markdown"
+    }
+}

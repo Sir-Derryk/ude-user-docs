@@ -1,0 +1,24 @@
+# Doxyfile template for UDE self-documentation (Python source).
+# The collector merges this template with runtime-generated settings
+# (INPUT, OUTPUT_DIRECTORY, GENERATE_XML, etc.) before invoking Doxygen.
+
+PROJECT_NAME           = "UDE Python API Reference"
+PROJECT_BRIEF          = "Universal Documentation Engine"
+
+# Python-style output (shared with Java in Doxygen's model)
+OPTIMIZE_OUTPUT_JAVA   = YES
+
+# Extract all entities, including those without docstrings
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+
+# Recurse into subdirectories
+RECURSIVE              = YES
+
+# Suppress output formats that the pipeline does not consume
+GENERATE_HTML          = NO
+GENERATE_LATEX         = NO
+
+# XML output is managed at runtime by the collector
+GENERATE_XML           = YES
