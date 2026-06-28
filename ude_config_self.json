@@ -7,11 +7,9 @@
     "output_dir": "hugo-site/content",
     "incremental": true,
     "collector": {
-        "type": "python",
-        "file_patterns": [
-            "**/*.py"
-        ],
-        "include_private": false
+        "type": "doxygen",
+        "language": "python",
+        "doxyfile_template": "Doxyfile"
     },
     "parser": {
         "type": "doxygen_xml"
